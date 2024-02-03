@@ -39,4 +39,4 @@ def handle_post_request():
 if __name__ == '__main__':
     df = pd.read_csv('./web-tier/imageTable.csv')
 
-    app.run(debug=True, host="127.0.0.1", port=5000)
+    app.run(debug=True, host="18.210.115.175", port=5000)
