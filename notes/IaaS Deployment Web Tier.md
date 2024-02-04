@@ -88,3 +88,72 @@ pip install Flask
  python ./web-tier/web_app.py
 
 python workload_generator.py --num_request 3 --url 'http://127.0.0.1:5000' --image_folder '../dataset/face_images_1000/face_images_1000' --prediction_file '../dataset/face_images_1000/face_images_1000/classification_results_1000.csv'
+
+## Setup EC2 Container to run Python program
+- ssh connect to ec2
+
+	```
+	C:\Users\huang>
+	ssh -i ./CSE546_SSH_KEYS/ec2_key_pair.pem ec2-user@ec2-18-210-115-175.compute-1.amazonaws.com
+	```
+
+SSH-EC2-connected.png
+![[SSH-EC2-connected.png]]
+
+- root access
+
+
+	`sudo su 
+	
+	 root-access.png
+	 
+	![[root-access.png]]
+	
+- use yum
+	`yum update`
+	- install git
+		`yum install git`
+	- clone github repository
+		`git clone https://github.com/krazyjoy/Cloud_Computing_IaaS.git`
+- virtual environment (store at directory: `python3-virtualenv`)
+	` python3 -m venv python3-virtualenv`
+	- activate virtual environment
+		`source python3-virtualenv/bin/activate`
+- python3 install?
+	`python3`
+	`python3 --version`
+	- install pip
+		`yum install python3-pip`
+	   - install packages command	
+		`python3 -m pip + <package_name>`
+	- install Flask
+		`python3 -m pip install Flask`
+	 - install Pandas
+		 `python3 -m pip install pandas`
+	- install requests
+		 `python3 -m pip install requests`
+	- install boto3
+		`python3 -m pip install boto3`
+		
+
+
+	- run flask web app
+	
+	```
+	(python3-virtualenv) [ec2-user@ip-172-31-47-197 Cloud_Computing_IaaS]$ python3 -m ./web-tier/web_app.py
+	
+	```
+- test workloader
+
+```
+(python3-virtualenv) [root@ip-172-31-47-197 workload_generator]# python ./workload_generator.py --num_request 1000 --url 'http://18.210.115.175:5000' --image_folder "../dataset/face_images_1000" --prediction_file '../dataset/face_images_1000/classification_results_1000.csv'
+```
+
+- run test1 aws instance
+
+```
+(python3-virtualenv) [root@ip-172-31-47-197 Cloud_Computing_IaaS]$
+python ./provided/scripts/project1_grader.py --access_keyId "AKIASZJRVG7HNLD2E6IY" --access_key "K7D9cfI0In3GQWhqruWT9Hxlb1LzNE3gfi6mYDQv"
+```
+
+![[test-aws-ec2-instance.png]]
