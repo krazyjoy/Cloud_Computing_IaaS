@@ -35,7 +35,7 @@ def send_one_request(image_path):
     file = {"inputFile": open(image_path,'rb')}
 
     response = requests.post(url, files=file)
-    print(f'response: {response.status_code}')
+    # print(f'response: {response.status_code}')
     # Print error message if failed
     if response.status_code != 200:
         print('sendErr: '+r.url)
