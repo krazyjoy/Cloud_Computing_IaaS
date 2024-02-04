@@ -3,6 +3,7 @@
 This repository contains code examples for you to use our workload generator.
 
 The following command sends three requests to a php backend.
+
 ```
 python3 workload_generator.py \
  --num_request 3 \
@@ -11,7 +12,8 @@ python3 workload_generator.py \
  --prediction_file "ground_truth_prediction_file"
 ```
 
-The following command sends three requests to a node.js/Python backend.
+The following command sends three requests to a node.js/Python backend
+.
 ```
 python3 workload_generator.py \
  --num_request 3 \
@@ -21,6 +23,7 @@ python3 workload_generator.py \
 ```
 
 Sample output:
+
 ```
 test_411.jpg uploaded!
 Classification result: test_411:Emily
