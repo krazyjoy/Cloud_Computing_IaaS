@@ -1,0 +1,168 @@
+{
+  "main": {
+    "id": "6db6433cefb3e0f6",
+    "type": "split",
+    "children": [
+      {
+        "id": "79f624b79150bc78",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d5c1d9a302a237df",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "notes/IaaS Deployment Web Tier.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6129be18e27ff169",
+    "type": "split",
+    "children": [
+      {
+        "id": "8d5c904ee8cefc04",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0e04dfe4c5903db5",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "b3119f8f9c7b97a8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "6d4715f35a578aa1",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "1032f19cc0625ec8",
+    "type": "split",
+    "children": [
+      {
+        "id": "4c8256be1808b743",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "249b3688e9186694",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "notes/IaaS Deployment Web Tier.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "e07bad1b6cae4d3a",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "notes/IaaS Deployment Web Tier.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "4dc21fec9dac012e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "1c45a2894fae9b42",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "notes/IaaS Deployment Web Tier.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "d5c1d9a302a237df",
+  "lastOpenFiles": [
+    "provided/dataset/classification_results_1000.csv",
+    "provided/dataset/classification_results_100.csv",
+    "provided/dataset/classification_result1000.csv",
+    "provided/dataset/classification_result.csv",
+    "notes/images",
+    "notes/images/packages_in_venv.png",
+    "notes/images/packages_in_venv.png",
+    "notes/IaaS Deployment Web Tier.md",
+    "packages_in_venv.md",
+    "notes/images/gunicorn-local-execute-web_app.png",
+    "web-tier/webtier.service",
+    "notes/images/execute_gunicorn.png",
+    "notes/images/root-access.png",
+    "notes/images/testapp.png",
+    "README.md",
+    "notes/images/disable_ssh_inheritance.png"
+  ]
+}

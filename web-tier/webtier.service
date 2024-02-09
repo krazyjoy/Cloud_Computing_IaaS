@@ -1,0 +1,11 @@
+[Unit]
+Description=Gunicorn instance for a EC2 web tier app
+After=network.target
+[Service]
+User=ec2-user
+Group=www-data
+WorkingDirectory=/home/ec2-user/Cloud_Computing_IaaS/web-tier
+ExecStart=/home/ec2-user/python3-virtualenv/bin/gunicorn -b 0.0.0.0:5001 web_app:app
+Restart=always
+[Install]
+WantedBy=multi-user.target

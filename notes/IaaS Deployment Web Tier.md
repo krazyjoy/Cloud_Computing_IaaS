@@ -143,10 +143,14 @@ SSH-EC2-connected.png
 	(python3-virtualenv) [ec2-user@ip-172-31-47-197 Cloud_Computing_IaaS]$ python3 -m ./web-tier/web_app.py
 	
 	```
+
+
+
 - test workloader
 
 ```
-(python3-virtualenv) [root@ip-172-31-47-197 workload_generator]# python ./workload_generator.py --num_request 1000 --url 'http://18.210.115.175:5000' --image_folder "../dataset/face_images_1000" --prediction_file '../dataset/face_images_1000/classification_results_1000.csv'
+(python3-virtualenv) [root@ip-172-31-47-197 workload_generator]# python ./workload_generator.py --num_request 10 --url 'http://18.210.115.175:5000' --image_folder "../dataset/face_images_1000" --prediction_file '../dataset/classification_results_1000.csv'
+
 ```
 
 - run test1 aws instance
@@ -157,3 +161,84 @@ python ./provided/scripts/project1_grader.py --access_keyId "AKIASZJRVG7HNLD2E6I
 ```
 
 ![[test-aws-ec2-instance.png]]
+
+
+
+Testapp
+1. install virtual environment: 
+	```
+	mkdir helloworld
+	cd helloworld
+	python3 -m venv python3-virtualenv
+	source python3-virtualenv/bin/activate
+	pip install Flask
+	
+	```
+2. create a flask app `testapp.py`
+		
+	```
+		nano testapp.py
+		from flask import Flask
+		app = Flask(__name__)
+		@app.route('/')
+		def hello_world():
+			return 'Hello World'
+		if __name__ == '__main__':
+			app.run()
+	```
+3. run the flask app
+		`python testapp.py`
+		
+
+![[testapp.png]]
+
+4. gunicorn - a production ready WSGI server, to serve our application
+```
+python3 -m pip install gunicorn
+
+gunicorn -b 0.0.0.0:8000 <filename>:app
+
+```
+![[execute_gunicorn.png]]
+
+use another port (instead of 8000, 5000) run 1 worker: 
+```
+(python3-virtualenv) [ec2-user@ip-172-31-47-197 web-tier]$ gunicorn -w 1 --reload -b 0.0.0.0:5001 web_app:app
+```
+
+![[gunicorn-local-execute-web_app.png]]
+
+- write a service file to run things in background 
+	`sudo nano /etc/systemd/system/webtier.service`
+	
+	```
+	[Unit]
+	Description=Gunicorn instance for a EC2 web tier app
+	After=network.target
+	[Service]
+	User=ec2-user
+	Group=www-data
+	WorkingDirectory=/home/ec2-user/Cloud_Computing_IaaS/web-tier
+	ExecStart=/home/ec2-user/python3-virtualenv/bin/gunicorn gunicorn -w 1 --reload -b 0.0.0.0:5001 web_app:app
+	Restart=always
+	[Install]
+	WantedBy=multi-user.target
+	```
+
+![[packages_in_venv.png]]
+
+
+
+
+- commands to load file
+```
+
+(reload all services)
+sudo systemctl daemon-reload <filename, i.e. webtier>
+sudo systemctl start(restart) <filename, i.e. webtier>
+sudo systemctl enable <filename, i.e. webtier>
+curl localhost:5001
+ 
+```
+
+- install nginx :　`sudo yum install nginx`
